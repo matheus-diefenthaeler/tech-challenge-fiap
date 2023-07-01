@@ -1,6 +1,5 @@
 package com.fiap.techchallange.dto.response;
 
-import com.fiap.techchallange.entity.State;
 import lombok.Getter;
 import lombok.Setter;
 
