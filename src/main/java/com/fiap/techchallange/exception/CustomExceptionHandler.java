@@ -37,4 +37,28 @@ public class CustomExceptionHandler {
         error.setPath(request.getRequestURI());
         return ResponseEntity.status(status).body(error);
     }
+
+    @ExceptionHandler(PersonNotFoundException.class)
+    public ResponseEntity<StandardError> handlePersonNotFound(PersonNotFoundException ex, HttpServletRequest request) {
+        status = HttpStatus.NOT_FOUND;
+        var error = new StandardError();
+        error.setTimestamp(Instant.now());
+        error.setStatus(status.value());
+        error.setError("PersonNotFoundException");
+        error.setMessage(ex.getMessage());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
+    }
+
+    @ExceptionHandler(EletronicDeviceNotFoundException.class)
+    public ResponseEntity<StandardError> handleEletronicNotFound(EletronicDeviceNotFoundException ex, HttpServletRequest request) {
+        status = HttpStatus.NOT_FOUND;
+        var error = new StandardError();
+        error.setTimestamp(Instant.now());
+        error.setStatus(status.value());
+        error.setError("EletronicDeviceNotFoundException");
+        error.setMessage(ex.getMessage());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
+    }
 }
