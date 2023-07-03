@@ -1,5 +1,8 @@
-package com.fiap.techchallange.exception;
+package com.fiap.techchallange.controller.exception;
 
+import com.fiap.techchallange.exception.AddressNotFoundException;
+import com.fiap.techchallange.exception.EletronicDeviceNotFoundException;
+import com.fiap.techchallange.exception.PersonNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

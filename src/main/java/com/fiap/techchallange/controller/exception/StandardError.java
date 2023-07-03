@@ -1,4 +1,4 @@
-package com.fiap.techchallange.exception;
+package com.fiap.techchallange.controller.exception;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
