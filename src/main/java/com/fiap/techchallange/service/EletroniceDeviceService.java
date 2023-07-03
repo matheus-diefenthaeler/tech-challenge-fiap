@@ -28,8 +28,8 @@ public class EletroniceDeviceService {
     }
 
     public EletronicDeviceResponse findById(Long id) {
-        Optional<EletroniceDevice> entity = repository.findById(id);
-        var save = entity.orElseThrow(() -> new EletronicDeviceNotFoundException("Eletronic device not found!"));
+        Optional<EletroniceDevice> device = repository.findById(id);
+        var save = device.orElseThrow(() -> new EletronicDeviceNotFoundException("Eletronic device not found!"));
         return modelToResponse(save);
     }
 
@@ -39,8 +39,8 @@ public class EletroniceDeviceService {
     }
 
     public void deleteById(Long id) {
-        Optional<EletroniceDevice> entity = repository.findById(id);
-        entity.ifPresentOrElse(repository::delete, () -> {
+        Optional<EletroniceDevice> device = repository.findById(id);
+        device.ifPresentOrElse(repository::delete, () -> {
             throw new EletronicDeviceNotFoundException("Device not found!");
         });
 

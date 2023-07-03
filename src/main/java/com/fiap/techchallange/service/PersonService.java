@@ -28,7 +28,7 @@ public class PersonService {
 
     public PersonResponse findById(Long id) {
         Optional<Person> person = repository.findById(id);
-        Person save = person.orElseThrow(() -> new PersonNotFoundException("Person Not found!"));
+        var save = person.orElseThrow(() -> new PersonNotFoundException("Person Not found!"));
         return modelToResponse(save);
 
     }
