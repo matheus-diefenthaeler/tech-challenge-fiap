@@ -17,30 +17,30 @@ import static com.fiap.techchallange.mapper.PersonMapper.*;
 @RequiredArgsConstructor
 public class PersonService {
 
-    private final PersonRepository personRepository;
+    private final PersonRepository repository;
 
 
     public PersonResponse createPerson(PersonRequest personRequest) {
         Person person = requestToModel(personRequest);
-        Person save = personRepository.save(person);
+        Person save = repository.save(person);
         return modelToResponse(save);
     }
 
     public PersonResponse findById(Long id) {
-        Optional<Person> person = personRepository.findById(id);
+        Optional<Person> person = repository.findById(id);
         Person save = person.orElseThrow(() -> new PersonNotFoundException("Person Not found!"));
         return modelToResponse(save);
 
     }
 
     public List<PersonResponse> findAll() {
-        List<Person> personList = personRepository.findAll();
+        List<Person> personList = repository.findAll();
         return toResponseList(personList);
     }
 
     public void deleteById(Long id) {
-        Optional<Person> person = personRepository.findById(id);
-        person.ifPresentOrElse(personRepository::delete, () -> {
+        Optional<Person> person = repository.findById(id);
+        person.ifPresentOrElse(repository::delete, () -> {
             throw new PersonNotFoundException("Person Not found!");
         });
     }

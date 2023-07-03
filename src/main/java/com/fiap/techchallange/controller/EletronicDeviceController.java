@@ -38,7 +38,7 @@ public class EletronicDeviceController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteEletronicDevice(@PathVariable Long id){
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
         service.deleteById(id);
         return ResponseEntity.noContent().build();
     }

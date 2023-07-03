@@ -18,28 +18,28 @@ import static com.fiap.techchallange.mapper.AddressMapper.*;
 @RequiredArgsConstructor
 public class AddressService {
 
-    private final AddressRepository addressRepository;
+    private final AddressRepository repository;
 
     public AddressResponse createAddress(AddressRequest request) {
         Address address = requestToModel(request);
-        Address save = addressRepository.save(address);
+        Address save = repository.save(address);
         return modelToResponse(save);
     }
     @Transactional(readOnly = true)
-    public AddressResponse getAddress(Long id) {
-        Optional<Address> address = addressRepository.findById(id);
+    public AddressResponse findById(Long id) {
+        Optional<Address> address = repository.findById(id);
         var save = address.orElseThrow(()-> new AddressNotFoundException("Address not found!"));
         return modelToResponse(save);
     }
-    public void deleteAddress(Long id) {
+    public void deleteById(Long id) {
 
-        Optional<Address> address = addressRepository.findById(id);
-        address.ifPresentOrElse(addressRepository::delete, () -> {
+        Optional<Address> address = repository.findById(id);
+        address.ifPresentOrElse(repository::delete, () -> {
             throw new AddressNotFoundException("Address not found!");
         });
     }
-    public List<AddressResponse> getAllAddress() {
-        List<Address> address = addressRepository.findAll();
+    public List<AddressResponse> findAll() {
+        List<Address> address = repository.findAll();
         return modelToResponseList(address);
     }
 }

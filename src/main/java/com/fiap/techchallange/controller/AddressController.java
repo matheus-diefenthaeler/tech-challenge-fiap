@@ -17,30 +17,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AddressController {
 
-    private final AddressService addressService;
+    private final AddressService service;
 
     @PostMapping
     public ResponseEntity<AddressResponse> createAddress(@Valid @RequestBody AddressRequest addressRequest, UriComponentsBuilder uriBuilder) {
-        AddressResponse addressResponse = addressService.createAddress(addressRequest);
+        AddressResponse addressResponse = service.createAddress(addressRequest);
         URI uri = uriBuilder.path("/address/{id}").buildAndExpand(addressResponse.getId()).toUri();
         return ResponseEntity.created(uri).body(addressResponse);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AddressResponse> getAddress(@PathVariable Long id) {
-        AddressResponse addressResponse = addressService.getAddress(id);
+    public ResponseEntity<AddressResponse> findById(@PathVariable Long id) {
+        AddressResponse addressResponse = service.findById(id);
         return ResponseEntity.ok(addressResponse);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<AddressResponse> deleteAddress(@PathVariable Long id) {
-        addressService.deleteAddress(id);
+    public ResponseEntity<AddressResponse> deleteById(@PathVariable Long id) {
+        service.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<AddressResponse>> getAllAddress() {
-        List<AddressResponse> addressResponse = addressService.getAllAddress();
+    public ResponseEntity<List<AddressResponse>> findAll() {
+        List<AddressResponse> addressResponse = service.findAll();
         return ResponseEntity.ok(addressResponse);
     }
 
