@@ -17,6 +17,7 @@ public class PersonMapper {
         person.setBirthDate(request.getBirthDate());
         person.setKinship(request.getKinship().getKinship().getName());
         person.setKinshipIdRelatedTo(request.getKinship().getPersonId());
+        person.setSex(request.getSex());
 
         return person;
     }
@@ -30,6 +31,7 @@ public class PersonMapper {
         personResponse.setBirthDate(person.getBirthDate());
         personResponse.setKinship(person.getKinship());
         personResponse.setKinshipRelatedTo(person.getKinshipIdRelatedTo());
+        personResponse.setSex(person.getSex());
 
         return personResponse;
     }

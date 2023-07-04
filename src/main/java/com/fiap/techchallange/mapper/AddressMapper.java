@@ -16,6 +16,7 @@ public class AddressMapper {
         address.setComplement(addressRequest.getComplement());
         address.setCity(addressRequest.getCity());
         address.setState(addressRequest.getState().getAbbreviation());
+        address.setNeighborhood(addressRequest.getNeighborhood());
         return address;
     }
 
@@ -27,6 +28,7 @@ public class AddressMapper {
         addressResponse.setComplement(address.getComplement());
         addressResponse.setCity(address.getCity());
         addressResponse.setState(address.getState());
+        addressResponse.setNeighborhood(address.getNeighborhood());
         return addressResponse;
     }
 

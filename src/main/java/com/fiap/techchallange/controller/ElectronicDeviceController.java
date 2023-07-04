@@ -1,8 +1,8 @@
 package com.fiap.techchallange.controller;
 
-import com.fiap.techchallange.dto.request.EletroniceDeviceRequest;
-import com.fiap.techchallange.dto.response.EletronicDeviceResponse;
-import com.fiap.techchallange.service.EletroniceDeviceService;
+import com.fiap.techchallange.dto.request.ElectronicDeviceRequest;
+import com.fiap.techchallange.dto.response.ElectronicDeviceResponse;
+import com.fiap.techchallange.service.ElectronicDeviceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,26 +14,26 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/device")
-public class EletronicDeviceController {
+public class ElectronicDeviceController {
 
-    private final EletroniceDeviceService service;
+    private final ElectronicDeviceService service;
 
     @PostMapping
-    public ResponseEntity<EletronicDeviceResponse> createEletroniceDevice(@RequestBody EletroniceDeviceRequest request, UriComponentsBuilder uriBuilder) {
-        EletronicDeviceResponse response = service.createEletronicDevice(request);
+    public ResponseEntity<ElectronicDeviceResponse> createEletroniceDevice(@RequestBody ElectronicDeviceRequest request, UriComponentsBuilder uriBuilder) {
+        ElectronicDeviceResponse response = service.createEletronicDevice(request);
         URI uri = uriBuilder.path("/device/{id}").buildAndExpand(response.getId()).toUri();
         return ResponseEntity.created(uri).body(response);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EletronicDeviceResponse> findById(@PathVariable Long id) {
-        EletronicDeviceResponse response = service.findById(id);
+    public ResponseEntity<ElectronicDeviceResponse> findById(@PathVariable Long id) {
+        ElectronicDeviceResponse response = service.findById(id);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping
-    public ResponseEntity<List<EletronicDeviceResponse>> findAll() {
-        List<EletronicDeviceResponse> eletronicDeviceResponseList = service.findAll();
+    public ResponseEntity<List<ElectronicDeviceResponse>> findAll() {
+        List<ElectronicDeviceResponse> eletronicDeviceResponseList = service.findAll();
         return ResponseEntity.ok(eletronicDeviceResponseList);
     }
 

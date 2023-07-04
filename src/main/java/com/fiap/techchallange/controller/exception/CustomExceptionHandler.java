@@ -1,7 +1,7 @@
 package com.fiap.techchallange.controller.exception;
 
 import com.fiap.techchallange.exception.AddressNotFoundException;
-import com.fiap.techchallange.exception.EletronicDeviceNotFoundException;
+import com.fiap.techchallange.exception.ElectronicDeviceNotFoundException;
 import com.fiap.techchallange.exception.PersonNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -53,8 +53,8 @@ public class CustomExceptionHandler {
         return ResponseEntity.status(status).body(error);
     }
 
-    @ExceptionHandler(EletronicDeviceNotFoundException.class)
-    public ResponseEntity<StandardError> handleEletronicNotFound(EletronicDeviceNotFoundException ex, HttpServletRequest request) {
+    @ExceptionHandler(ElectronicDeviceNotFoundException.class)
+    public ResponseEntity<StandardError> handleEletronicNotFound(ElectronicDeviceNotFoundException ex, HttpServletRequest request) {
         status = HttpStatus.NOT_FOUND;
         var error = new StandardError();
         error.setTimestamp(Instant.now());

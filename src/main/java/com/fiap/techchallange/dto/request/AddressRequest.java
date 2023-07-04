@@ -13,6 +13,7 @@ public class AddressRequest {
     @NotNull(message = "Number is required!")
     private String number;
     private String complement;
+    private String neighborhood;
     @NotNull(message = "City is required!")
     private String city;
     @NotNull(message = "State is required!")

@@ -15,4 +15,5 @@ public class PersonResponse {
     private LocalDate birthDate;
     private String kinship;
     private Long kinshipRelatedTo;
+    private String sex;
 }

@@ -21,6 +21,6 @@ public class Person {
     private LocalDate birthDate;
     private Long kinshipIdRelatedTo;
     private String kinship;
-
+    private String sex;
 
 }

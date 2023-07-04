@@ -15,4 +15,5 @@ public class PersonRequest {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
     private Kinship kinship;
+    private String sex;
 }

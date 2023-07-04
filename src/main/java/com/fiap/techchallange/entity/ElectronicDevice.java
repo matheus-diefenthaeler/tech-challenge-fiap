@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EletroniceDevice {
+public class ElectronicDevice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
