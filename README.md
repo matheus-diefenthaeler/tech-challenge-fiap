@@ -6,56 +6,100 @@ Este repositório contém o código do primeiro Tech Challenge da pós-graduaç�
 
 A primeira API é a API de Gestão de Endereços. Ela tem como função gerenciar as informações referentes aos endereços cadastrados em nosso sistema, recebendo como informações a rua, número, complemento, bairro, cidade e estado. Esta API lida com a requisição de quatro endpoints, que serão listados abaixo.
 
-+ “/address”, request method: POST - através deste endpoint, podemos criar e salvar novos endereços em nosso sistema. 
-+ “/address/{id}”, request method: GET - através deste endpoint, podemos consultar algum endereço baseado em seu ID, que é atribuído no momento de registro.
-+ “/address/{id}”, request method: DELETE - através deste endpoint, podemos deletar de nosso sistema algum endereço anteriormente registrado, baseado em seu ID.
-+ “/address”, request method: GET - através deste endpoint, o sistema retorna uma lista que consiste de todos os endereços cadastrados.
++ “/address”, request method: `POST` - através deste endpoint, podemos criar e salvar novos endereços em nosso sistema. 
++ “/address/{id}”, request method: `GET` - através deste endpoint, podemos consultar algum endereço baseado em seu ID, que é atribuído no momento de registro.
++ “/address/{id}”, request method: `DELETE` - através deste endpoint, podemos deletar de nosso sistema algum endereço anteriormente registrado, baseado em seu ID.
++ “/address”, request method: `GET` - através deste endpoint, o sistema retorna uma lista que consiste de todos os endereços cadastrados.
 
 ---
 Exemplo de JSON para cadastrar um endereço na API de Gestão de Endereços:
-
-{"street": "Rua das Graças","state": "PERNAMBUCO","number": "12","complement": "Ap 202, bloco 9","city": "Recife","neighborhood": "Alto do Mandú"}
-
+```JSON
+{
+    "street": "Rua das Graças",
+    "state": "PERNAMBUCO",
+    "number": "12",
+    "complement": "Ap 202, bloco 9",
+    "city": "Recife",
+    "neighborhood": "Alto do Mandú"
+}
+```
 Response da requisição acima na API de Gestão de Endereços, que retorna com o Http Status 201:
 
-{"id": 1,"street": "Rua das Graças","number": "12","complement": "Ap 202, bloco 9","city": "Recife","state": "PE","neighborhood": "Alto do Mandú"}
-
+```JSON
+{
+    "id": 1,
+    "street": "Rua das Graças",
+    "number": "12",
+    "complement": "Ap 202, bloco 9",
+    "city": "Recife",
+    "state": "PE",
+    "neighborhood": "Alto do Mandú"
+}
+```
 
 
 ---
 A segunda API é a API de Gestão de Pessoas. Ela tem como função gerenciar as informações referentes aos indivíduos cadastrados em nosso sistema, recebendo como informações o nome, CPF, data de nascimento, sexo e o parentesco com outro usuário do sistema. Esta API lida com a requisição de quatro endpoints, que serão listados abaixo.
 
-+ “/person”, request method: POST - através deste endpoint, podemos criar e salvar novas pessoas em nosso sistema. 
-+ “/person/{id}”, request method: GET - através deste endpoint, podemos consultar algum indivíduo baseado em seu ID, que é atribuído no momento de registro.
-+ “/person/{id}”, request method: DELETE - através deste endpoint, podemos deletar de nosso sistema alguma pessoa anteriormente registrada, baseado em seu ID.
-+ “/person”, request method: GET - através deste endpoint, o sistema retorna uma lista que consiste de todas as pessoas cadastradas.
++ “/person”, request method: `POST` - através deste endpoint, podemos criar e salvar novas pessoas em nosso sistema. 
++ “/person/{id}”, request method: `GET` - através deste endpoint, podemos consultar algum indivíduo baseado em seu ID, que é atribuído no momento de registro.
++ “/person/{id}”, request method: `DELETE` - através deste endpoint, podemos deletar de nosso sistema alguma pessoa anteriormente registrada, baseado em seu ID.
++ “/person”, request method: `GET` - através deste endpoint, o sistema retorna uma lista que consiste de todas as pessoas cadastradas.
 
 ---
 Exemplo de JSON para cadastrar uma pessoa na API de Gestão de Pessoas:
-
-{"name": "Lucas D.","cpf": "123321123321","birthDate": "1991-09-19","kinship": {"personId": 1,"kinship": "PAI"},"sex": "male"}
-
+```JSON
+{
+    "name": "Lucas D.",
+    "cpf": "123321123321",
+    "birthDate": "1991-09-19",
+    "kinship": {
+        "personId": 1,
+        "kinship": "PAI"
+    },
+    "sex": "male"
+}
+```
 Response da requisição acima na API de Gestão de Pessoas, que retorna com o Http Status 201:
-
-{"id": 4,"name": "Lucas D.","cpf": "123321123321","birthDate": "1991-09-19","kinship": "Pai","kinshipRelatedTo": 1,"sex": "male"}
-
+```JSON
+{
+    "id": 4,
+    "name": "Lucas D.",
+    "cpf": "123321123321",
+    "birthDate": "1991-09-19",
+    "kinship": "Pai",
+    "kinshipRelatedTo": 1,
+    "sex": "male"
+}
+```
 ---
 A terceira API é a API de Gestão de Eletrodomésticos. Ela tem como função gerenciar as informações referentes aos aparelhos eletrônicos dos usuários cadastrados em nosso sistema, recebendo como informações o nome do aparelho, a potência, o modelo e a unidade de medida. Esta API lida com a requisição de quatro endpoints, que serão listados abaixo.
 
-+ “/device”, request method: POST - através deste endpoint, podemos criar e salvar novos aparelhos eletrônicos em nosso sistema.
-+ “/device/{id}”, request method: GET - através deste endpoint, podemos consultar algum aparelho eletrônico baseado em seu ID, que é atribuído no momento de registro.
-+ “/device/{id}”, request method: DELETE - através deste endpoint, podemos deletar de nosso sistema algum aparelho eletrônico anteriormente registrado, baseado em seu ID.
-+ “/device”, request method: GET - através deste endpoint, o sistema retorna uma lista que consiste de todos os aparelhos eletrônicos cadastrados.
++ “/device”, request method: `POST` - através deste endpoint, podemos criar e salvar novos aparelhos eletrônicos em nosso sistema.
++ “/device/{id}”, request method: `GET` - através deste endpoint, podemos consultar algum aparelho eletrônico baseado em seu ID, que é atribuído no momento de registro.
++ “/device/{id}”, request method: `DELETE` - através deste endpoint, podemos deletar de nosso sistema algum aparelho eletrônico anteriormente registrado, baseado em seu ID.
++ “/device”, request method: `GET` - através deste endpoint, o sistema retorna uma lista que consiste de todos os aparelhos eletrônicos cadastrados.
 
 ---
 Exemplo de JSON para cadastrar um eletrodoméstico na API de Gestão de Eletrodomésticos:
-
-{"name": "Bulb","power": "60","model": "V1-ABC","unit": "W"}
-
+```JSON
+{
+    "name": "Bulb",
+    "power": "60",
+    "model": "V1-ABC",
+    "unit": "W"
+}
+```
 Response da requisição acima na API de Gestão de Eletrodomésticos, que retorna com o Http Status 201:
-
-{"id": 1,"name": "Bulb","power": "60","model": "V1-ABC","unit": "W"}
-
+```JSON
+{
+    "id": 1,
+    "name": "Bulb",
+    "power": "60",
+    "model": "V1-ABC",
+    "unit": "W"
+}
+```
 ---
 
 <h2> Relatório Técnico </h2>
